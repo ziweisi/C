@@ -1,0 +1,20 @@
+# include <stdio.h>
+int faction(int n);
+ int main(void){
+ 	int n;
+	printf("请输入正整数n:\n");
+	scanf("%d",&n);
+	printf("%d",faction(n))	;
+	return 0;
+ } 
+int faction(int n){
+ 	double result;
+ 	if(n==1||n==0)
+ 	{
+	 result=1;
+	 }
+	 else{
+	 	result=n*faction(n-1);
+	 }
+	 return result;	 
+ }
