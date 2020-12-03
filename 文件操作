@@ -1,0 +1,26 @@
+	#include <stdio.h>
+	#include <stdlib.h>
+	int main(void){
+	    FILE *fp;
+	    long num;
+	    char strname[20]; 
+	    int i,score;
+	    int avg_score=0;
+	    //一定要使用双斜杠，这样保证的文件路径的绝对性。 
+	    if((fp=fopen("D:\\C&C++\\DecC++\\C语言程序设计-何钦铭版\\12.文件\\f12-1.txt","r"))==NULL){
+	        printf("未找到文件\n");
+	        exit(0); 
+	    }
+	    for(i=0;i<5;i++){
+	    //从文件中读入数据
+	    fscanf(fp,"%ld%s%d",&num,strname,&score); //
+	    avg_score +=score;
+	    printf("%ld %s %d\n",num,strname,score);
+	    }
+	    printf("平均成绩是：%d\n",avg_score/5);
+	    if(fclose(fp)){
+	        printf("can not close the file!\n");
+	        exit(0);
+	    }
+	    return 0;
+	} 
