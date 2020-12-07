@@ -1,0 +1,17 @@
+#include <stdio.h>
+swap(int*m,int*n){
+	int *t;
+	 t=m;
+	 m=n;
+	 n=t;
+}
+int main(){
+	int a=2;
+	int b=3;
+	int*p,*q;
+	p=&a;
+	q=&b;
+	printf("%d\n%d\n",p,q);
+	swap(p,q);
+	printf("%d\n%d",a,b);
+} 
