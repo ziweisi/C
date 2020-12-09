@@ -1,0 +1,14 @@
+#include <stdio.h> 
+int main(){
+	printf("请输入两个整数：\n");
+	int a,b;
+	scanf("%d%d",&a,&b);//scanf引号中间不要有任何的多余符号，
+	                    //包括空格都不能有，输入的时候数据之间用空格隔开 
+	int c;
+	while(c=a%b){
+		a=b;
+		b=c;
+	}
+	printf("这两个整数的最大公约数是%d",b);
+	return 0; 
+}
