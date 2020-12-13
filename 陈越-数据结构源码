@@ -1,0 +1,31 @@
+#include<stdio.h>
+void printN(int n){
+if(n>0)
+printN(n-1);
+printf("%d\n",n);
+} 
+int main(void){
+	int N;
+	printf("请输入正整数N：");
+	scanf("%d",&N);
+	printN(N);
+	return 0; 
+}
+备注：此段代码在n=100,1000,10000,100000测试中，当n=100000时程序崩溃不再运行。
+------------------------
+#include<stdio.h>
+void printN(int n){
+int i;
+for(i=1;i<=n;i++)
+{
+printf("%d\n",i);
+} 
+}
+int main(void){
+	int N;
+	printf("请输入正整数N：");
+	scanf("%d",&N);
+	printN(N);
+	return 0; 
+}
+备注：此段代码在n=100,1000,10000,100000测试中，都通过了测试。
