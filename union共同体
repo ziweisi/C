@@ -1,0 +1,16 @@
+#include "stdio.h" 
+int main(){
+	union key {
+		int k;
+		char ch[4];
+	
+	} u;
+	u.k=95;
+	
+	printf("%d\n",u.ch[1]);//1
+	printf("%d\n", u.ch[0]);//2
+	printf("%d", sizeof(u.ch)/sizeof(u.ch[0]));
+	printf("%d\n",u.k);
+	return 0;
+	
+}
