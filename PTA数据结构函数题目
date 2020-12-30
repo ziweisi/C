@@ -70,7 +70,38 @@ int PrimeSum( int m, int n ){
 	return sum; 
 }
 }
-	
+
+---------------------------
+#include <stdio.h>
+#include <math.h>
+double funcos( double e, double x );
+int main()
+{   double e, x;
+    scanf("%lf %lf", &e, &x);
+    printf("cos(%.2f) = %.6f\n", x, funcos(e, x));
+    return 0;
+}
+double funcos( double e, double x ){
+int i=1;
+int j,m;
+int flag=-1;
+double sum=1;
+double powx=1;
+double k=1;
+double temp=1; 
+while(abs(temp)>e){
+ k=1;
+ m=2*i;
+ for(j=1;j<=m;j++)
+ k=k*j;
+powx=pow(x,m);
+temp=powx/k;
+sum=sum+flag*temp;
+i++;
+flag=-flag;
+}
+return sum;
+}
 	
 	
 	
