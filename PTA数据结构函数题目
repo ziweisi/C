@@ -102,7 +102,25 @@ flag=-flag;
 }
 return sum;
 }
-	
+
+-----------------------
+double funcos( double e, double x ){
+int i=1;
+int j;
+int flag=-1;
+double sum=1;
+double k=1;
+double last_temp=1;
+while(last_temp>=e){
+     for(j=2*i-1;j<=2*i;j++)
+         k=k*j;
+    last_temp=pow(x,2*i)/k;
+    sum=sum+flag*last_temp;
+    flag=-flag;
+    i++;
+}
+return sum;
+}
 	
 	
 	
