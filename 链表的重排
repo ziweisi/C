@@ -1,0 +1,79 @@
+
+/*
+函数readlist从标准输入读入一系列正整数，按照读入顺序建立单链表。当读到−1时表示输入结束，
+函数应返回指向单链表头结点的指针。
+*/
+struct ListNode* readlist() {
+    int data;
+    struct ListNode* head = NULL;//头结点用来作为函数返回值.
+    struct ListNode* p;//p用来移动保证链表串起来，q用来保存系统创建结点的首地址值.
+    while (data != -1) {//按照题目要求，一般是-1作为结束标志，这是之前计算机大佬的习惯，被继承下来了，你定义为-2完全没问题，只是显得不专业
+        scanf("%d", &data);//键盘输入
+        struct ListNode*q = (struct ListNode*)malloc(sizeof(struct ListNode));
+        if (q!= NULL) {//成功分配到内存空间，malloc函数成功返回地址值。
+            q->data = data;//数字域赋值为键盘输入值.
+            q->next = NULL;//该结点的为末结点，所以其next设置为NULL。
+        }
+       //printf("NO succeed creat node");//系统没找到足够的空间用于创建结点，一般情况下只是为了保证健壮性（就是耐操性）。
+
+        if (head != NULL) {//第一赋值时，head结点值为null.
+            p->next = q;//将获得系统分配的地址值赋值给上一个结点next域.
+            
+        }
+        else {
+            head = q;//系统配空间首地址赋值给head.
+        }
+        p = q; //将q的地址赋值给p，用以p来的移动将链表串起来.
+    }
+    return head;//返回head地址值.函数的返回值是地址值 *。
+
+}
+/*函数getodd将单链表L中奇数值的结点分离出来，重新组成一个新的链表。
+返回指向新链表头结点的指针，同时将L中存储的地址改为删除了奇数值结点后的链表的头结点地址
+（所以要传入L的指针）。
+*/
+struct ListNode* getodd(struct ListNode** L) {//传入的是二级指针，用来保存头指针的地址值.
+    struct ListNode* head0 = NULL, * head1 = NULL, * p0, * p1;
+    while ((*L) != NULL) {
+        int data = (*L)->data;
+        struct ListNode*q = (struct ListNode*)malloc(sizeof(struct ListNode));
+        if (data % 2) {
+           /*
+           创建新的链表
+           操作与上面的函数逻辑类似
+           1.判断是不是头结点
+           2.是头结点就将分配所得地址赋值给头结点,将q地址保存到p1中。
+           3.不是头结点将p1结点的next域赋值为q
+           */
+            if (q != NULL)
+            {
+                q->data = data;
+                q->next = NULL;
+            }
+            //else printf("NO succeed creat node");
+            if (head1 != NULL)
+            {
+                p1->next = q;
+            }
+            else head1 = q;
+            p1 = q;
+        }
+        else {
+            if (q != NULL)
+            {
+                q->data = data;
+                q->next = NULL;
+            }
+            //else printf("NO succeed creat node");
+            if (head0!= NULL)
+            {
+                p0->next = q;
+            }
+            else head0 = q;
+            p0 = q;
+        }
+        *L = (*L)->next;
+    }
+    *L = head0;//得到的结点首地址为偶数链表.
+    return head1;//得到的结点首地址为奇数链表.
+}
