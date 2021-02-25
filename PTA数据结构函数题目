@@ -1,3 +1,4 @@
+```
 #include <stdio.h>
 void pyramid(int n);
 int main()
@@ -121,7 +122,7 @@ while(last_temp>=e){
 }
 return sum;
 }
-	
+```	
 	
 	
 	
